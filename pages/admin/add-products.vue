@@ -1,10 +1,17 @@
 <template>
   <div class="p-6 max-w-xl mx-auto space-y-6 flex flex-col items-center">
-    <h1 class="text-xl font-semibold text-white">Administration</h1>
+    <h1 class="text-xl font-semibold text-black">Administration</h1>
 
     <div class="flex flex-col gap-2">
-      <label class="text-gray-300">Nombre de produits : {{ nbproducts }}</label>
-      <USlider v-model="nbproducts" :min="0" :max="200" />
+      <label class="text-gray-800 min-w-[250px] inline-block text-center">
+        Nombre de produits : {{ nbproducts }}
+      </label>
+      <USlider
+        class="cursor-pointer"
+        v-model="nbproducts"
+        :min="0"
+        :max="200"
+      />
     </div>
 
     <div class="flex gap-4">

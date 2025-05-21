@@ -1,5 +1,5 @@
 <template>
-  <header class="bg-gray-800 text-white p-4">
+  <header class="bg-green-700 text-white p-4">
     <nav class="flex space-x-6 justify-between">
       <div class="flex items-center gap-8">
         <a href="/" class="hover:text-gray-300">Accueil</a>

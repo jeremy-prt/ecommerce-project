@@ -4,11 +4,11 @@
       v-model="password"
       type="password"
       placeholder="Mot de passe"
-      class="border rounded px-3 py-2"
+      class="border border-gray-300 rounded px-3 py-2 text-gray-900 focus:ring-1 focus:ring-green-400 focus:border-green-400 outline-none duration-300"
     />
     <button
       @click="handleLogin"
-      class="bg-blue-600 text-white px-4 py-2 rounded"
+      class="cursor-pointer bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded font-semibold transition duration-200 shadow focus:outline-none"
     >
       Se connecter
     </button>

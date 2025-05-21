@@ -1,15 +1,20 @@
 <template>
   <div class="flex flex-col items-center mt-12">
-    <h1 class="text-3xl font-bold mb-6">Store Ecommerce</h1>
-    <div v-if="products.length === 0" class="text-gray-500">
+    <h1 class="text-3xl font-bold mb-6 text-black">Store Ecommerce</h1>
+    <div v-if="products.length === 0" class="text-black">
       Aucun produit pour le moment
     </div>
-    <ul v-else class="w-full max-w-xl space-y-4">
+    <ul
+      v-else
+      class="w-full max-w-5xl grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+    >
       <CardProduct
         v-for="product in products"
         :key="product.id"
         :product="product"
         @add-to-cart="addToCart"
+        :show-add="true"
+        :show-remove="false"
       />
     </ul>
   </div>

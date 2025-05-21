@@ -1,26 +1,27 @@
 <template>
   <div class="flex flex-col items-center mt-12">
-    <h1 class="text-2xl font-bold mb-6">Mon Panier</h1>
-    <div v-if="cart.length === 0" class="text-gray-500">Panier vide</div>
-    <ul v-else class="w-full max-w-xl space-y-4">
-      <li
+    <h1 class="text-2xl font-bold mb-6 text-black flex items-center gap-2">
+      Mon Panier
+      <span
+        v-if="cart.length > 0"
+        class="ml-2 text-base font-semibold text-gray-600"
+      >
+        ({{ cart.length }} {{ cart.length === 1 ? "article" : "articles" }})
+      </span>
+    </h1>
+    <div v-if="cart.length === 0" class="text-gray-800">Panier vide</div>
+    <ul
+      v-else
+      class="w-full max-w-5xl grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+    >
+      <CardProduct
         v-for="(product, i) in cart"
         :key="product.id"
-        class="border p-4 rounded flex justify-between items-start"
-      >
-        <div>
-          <div class="font-bold">{{ product.name }}</div>
-          <div>{{ product.price }} €</div>
-          <div class="text-sm text-gray-500">{{ product.description }}</div>
-        </div>
-        <button
-          @click="removeFromCart(i)"
-          class="text-red-500 text-xl font-bold ml-4 cursor-pointer"
-          title="Supprimer"
-        >
-          ×
-        </button>
-      </li>
+        :product="product"
+        :show-add="false"
+        :show-remove="true"
+        @remove="removeFromCart(i)"
+      />
     </ul>
   </div>
 </template>
@@ -31,8 +32,8 @@ import type { Product } from "~/types/Product"; // l'auto import pour le type ne
 const cart = ref<Product[]>([]);
 
 onMounted(() => {
-  const rawCart = localStorage.getItem("cart");
-  cart.value = rawCart ? JSON.parse(rawCart) : [];
+  const storedCart = localStorage.getItem("cart");
+  cart.value = storedCart ? JSON.parse(storedCart) : [];
 });
 
 function removeFromCart(index: number) {
