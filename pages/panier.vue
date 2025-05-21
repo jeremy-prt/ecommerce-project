@@ -1,14 +1,17 @@
 <template>
   <div class="flex flex-col items-center mt-12">
-    <h1 class="text-2xl font-bold mb-6 text-black flex items-center gap-2">
-      Mon Panier
+    <div class="flex flex-col items-center gap-2 mb-7">
+      <h1 class="text-2xl font-bold text-black flex items-center gap-2">
+        Mon Panier
+      </h1>
+
       <span
         v-if="cart.length > 0"
-        class="ml-2 text-base font-semibold text-gray-600"
+        class="text-base font-semibold text-gray-600"
       >
         ({{ cart.length }} {{ cart.length === 1 ? "article" : "articles" }})
       </span>
-    </h1>
+    </div>
     <div v-if="cart.length === 0" class="text-gray-800">Panier vide</div>
     <ul
       v-else
