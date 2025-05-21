@@ -21,6 +21,5 @@ export default defineEventHandler((event) => {
 
   return { products };
 });
-
 // Retourne des produits aléatoires avec faker, si pas de précision dans la requete alors on renvoit 10
 // Si c'est un nombre pas entre 0 et 200, on send une erreur
