@@ -13,6 +13,9 @@
 </template>
 
 <script setup lang="ts">
+definePageMeta({
+  middleware: "auth",
+});
 const nbproducts = ref(0);
 const products = ref("");
 const { getProducts } = useProducts();

@@ -5,8 +5,8 @@ export default defineEventHandler(async (event) => {
   const password = config.password;
 
   if (body?.password === password) {
-    setCookie(event, "auth", "ok", {
-      httpOnly: true,
+    setCookie(event, "auth", config.password, {
+      httpOnly: false,
       path: "/",
       maxAge: 60 * 60,
     });
