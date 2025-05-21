@@ -5,15 +5,12 @@
       Aucun produit pour le moment
     </div>
     <ul v-else class="w-full max-w-xl space-y-4">
-      <li
+      <CardProduct
         v-for="product in products"
         :key="product.id"
-        class="border p-4 rounded"
-      >
-        <div class="font-bold">{{ product.name }}</div>
-        <div>{{ product.price }} €</div>
-        <div class="text-sm text-gray-500">{{ product.description }}</div>
-      </li>
+        :product="product"
+        @add-to-cart="addToCart"
+      />
     </ul>
   </div>
 </template>
@@ -24,7 +21,17 @@ import type { Product } from "~/types/Product";
 const products = ref<Product[]>([]);
 
 onMounted(() => {
-  const storeProducts = localStorage.getItem("products");
-  products.value = storeProducts ? JSON.parse(storeProducts) : [];
+  const storedProduct = localStorage.getItem("products");
+  products.value = storedProduct ? JSON.parse(storedProduct) : [];
 });
+
+function addToCart(product: Product) {
+  const storedCartData = localStorage.getItem("cart");
+  const cart: Product[] = storedCartData ? JSON.parse(storedCartData) : [];
+  cart.push(product);
+  localStorage.setItem("cart", JSON.stringify(cart));
+}
 </script>
+
+<!-- Honnetement j'ai encore du mal à comprendre les states à 100% (du moins l'utilisation)
+ dcp j'ai pref props et emit pour un petit projet simple comme lui -->
