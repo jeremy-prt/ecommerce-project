@@ -26,8 +26,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted } from "vue";
-import type { Product } from "~/types/Product";
+import type { Product } from "~/types/Product"; // l'auto import pour le type ne fonctionn epas perso ??
 
 const cart = ref<Product[]>([]);
 

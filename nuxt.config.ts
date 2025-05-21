@@ -7,4 +7,8 @@ export default defineNuxtConfig({
   vite: {
     plugins: [tailwindcss()],
   },
+  runtimeConfig: {
+    password: "",
+    public: {},
+  },
 });
