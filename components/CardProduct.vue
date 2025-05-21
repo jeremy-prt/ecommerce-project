@@ -31,11 +31,11 @@
     <button
       v-if="showRemove"
       @click="$emit('remove')"
-      class="absolute top-2 right-2 text-white text-xl font-bold bg-red-500 hover:bg-red-600 rounded-full w-8 h-8 shadow cursor-pointer transition flex items-center justify-center"
+      class="absolute top-[-13px] right-[-13px] text-white text-xl font-bold bg-red-500 hover:bg-red-600 rounded-full w-8 h-8 shadow cursor-pointer transition flex items-center justify-center"
       title="Supprimer"
       type="button"
     >
-      ×
+      <span class="mb-[0.9px]">×</span>
     </button>
   </li>
 </template>
