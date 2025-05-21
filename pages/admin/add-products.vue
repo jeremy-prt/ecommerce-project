@@ -19,6 +19,6 @@ const { getProducts } = useProducts();
 
 const fetchProducts = async () => {
   const res = await getProducts(nbproducts.value);
-  products.value = JSON.stringify(res, null, 2);
+  localStorage.setItem("products", JSON.stringify(res.products));
 };
 </script>
